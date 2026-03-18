@@ -27,9 +27,9 @@ read -s MYSQL_ROOT_PASSWORD
 VALIDATE(){
     if [ $1 -eq 0 ]
     then
-        echo "$2 is...$G SUCCESS $N" | tee -a $LOG_FILE
+        echo -e "$2 is...$G SUCCESS $N" | tee -a $LOG_FILE
     else
-        echo "$2 is...$R FAILURE $N" | tee -a $LOG_FILE
+        echo -e "$2 is...$R FAILURE $N" | tee -a $LOG_FILE
         exit
     fi
 }
