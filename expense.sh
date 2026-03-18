@@ -19,28 +19,28 @@ do
     fi
 
     echo "$instance Ip add is: $IP"
-done
 
-aws route53 change-resource-record-sets \
-    --hosted-zone-id $ZONE_ID \
-    --change-batch '
-    {
-    "Comment": "Update record to reflect new IP address",
-    "Changes": [
+    aws route53 change-resource-record-sets \
+        --hosted-zone-id $ZONE_ID \
+        --change-batch '
         {
-        "Action": "UPSERT",
-        "ResourceRecordSet": {
-            "Name": "'$RECORD_NAME'",
-            "Type": "A",
-            "TTL": 1,
-            "ResourceRecords": [
+        "Comment": "Update record to reflect new IP address",
+        "Changes": [
             {
-                "Value": "'$IP'"
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "'$RECORD_NAME'",
+                "Type": "A",
+                "TTL": 1,
+                "ResourceRecords": [
+                {
+                    "Value": "'$IP'"
+                }
+                ]
             }
-            ]
-        }
-        }
-    ]
-    }'
+            }
+        ]
+        }'
+done
     
 
