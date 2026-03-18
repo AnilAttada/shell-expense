@@ -18,7 +18,7 @@ do
         RECORD_NAME="$DOMAIN_NAME"
     fi
 
-    echo "$instace Ip add is: $IP"
+    echo "$instance Ip add is: $IP"
 done
 
 aws route53 change-resource-record-sets \
