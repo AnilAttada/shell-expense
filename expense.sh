@@ -1,6 +1,6 @@
 #!/bin/bash
 
-AMI_ID="ami-0220d79f3f480ecf5"
+AMI_ID="ami-02dfbd4ff395f2a1b" #temporary
 SG_ID="sg-06f23152b42979b41"
 INSTANCES=( "mysql" "backend" "frontend" )
 ZONE_ID="Z1033319ZTEWWV8J5PPG"
