@@ -1,9 +1,9 @@
 #!/bin/bash
 
-R="/[e31m"
-G="/[e32m"
-Y="/[e33m"
-N="/[e0m"
+R="\[e31m"
+G="\[e32m"
+Y="\[e33m"
+N="\[e0m"
 USERID=$(id -u)
 
 LOGS_FOLDER="/var/log/expense-logs"
