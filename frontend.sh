@@ -49,7 +49,7 @@ unzip /tmp/frontend.zip
 VALIDATE $? "Unzipping the code"
 
 rm -rf /etc/nginx/default.d/expense.conf
-VALIDATE $? "Removing before existing data"
+VALIDATE $? "Removing the before existing data"
 
 cp $SCRIPT_DIR/expense.conf /etc/nginx/default.d/expense.conf
 VALIDATE $? "Copying expense conf"
