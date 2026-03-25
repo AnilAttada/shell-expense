@@ -13,7 +13,7 @@ SCRIPT_DIR=$PWD
 
 mkdir -p $LOGS_FOLDER
 
-if  [ $USERID -ne o ]
+if  [ $USERID -ne 0 ]
 then
     echo -e " $R Error:: please run script with root access $N " | tee -a $LOG_FILE
     exit 1
