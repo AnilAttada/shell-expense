@@ -31,27 +31,27 @@ VALIDATE(){
     fi
 }
 
-dnf install nginx -y 
+dnf install nginx -y &>>$LOG_FILE
 VALIDATE $? "Installing nginx"
 
 systemctl enable nginx
-systemctl start nginx
+systemctl start nginx 
 VALIDATE $? "Starting nginx"
 
-rm -rf /usr/share/nginx/html/*
+rm -rf /usr/share/nginx/html/* &>>$LOG_FILE
 VALIDATE 4? "Removing default content"
 
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
 VALIDATE $? "Downloading frontend code"
 
-cd /usr/share/nginx/html
-unzip /tmp/frontend.zip
+cd /usr/share/nginx/html 
+unzip /tmp/frontend.zip &>>$LOG_FILE
 VALIDATE $? "Unzipping the code"
 
-rm -rf /etc/nginx/default.d/expense.conf
+rm -rf /etc/nginx/default.d/expense.conf &>>$LOG_FILE
 VALIDATE $? "Removing the before existing data"
 
-cp $SCRIPT_DIR/expense.conf /etc/nginx/default.d/expense.conf
+cp $SCRIPT_DIR/expense.conf /etc/nginx/default.d/expense.conf &>>$LOG_FILE
 VALIDATE $? "Copying expense conf"
 
 systemctl restart nginx
